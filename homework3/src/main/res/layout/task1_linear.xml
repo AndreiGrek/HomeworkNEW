@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="25dp"
+            android:text="Attractions"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="25dp"
+            android:text="Dining"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="25dp"
+            android:text="Education"
+            android:textSize="25sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="25dp"
+            android:text="Family"
+            android:textSize="25sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="25dp"
+            android:text="Health"
+            android:textSize="25sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="25dp"
+            android:text="Office"
+            android:textSize="25sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="25dp"
+            android:text="Promotions"
+            android:textSize="25sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="25dp"
+            android:text="Radio"
+            android:textSize="25sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="25dp"
+            android:text="Recipes"
+            android:textSize="25sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="25dp"
+            android:text="Sports"
+            android:textSize="25sp" />
+    </LinearLayout>
+</LinearLayout>
