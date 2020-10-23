@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <com.example.homework4_2.Custom
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rectColor="@color/colorPrimary"
+        app:circleColorBig="@color/black"
+        app:circleColorSmall="@color/purple"
+        app:arc1Color="@color/red"
+        app:arc2Color="@color/yellow"
+        app:arc3Color="@color/blue"
+        app:arc4Color="@color/green"/>
+
+
+
+
+</FrameLayout>
