@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Custom">
+        <attr name="rectColor" format="color"/>
+        <attr name="circleColorBig" format="color"/>
+        <attr name="circleColorSmall" format="color"/>
+        <attr name="arc1Color" format="color"/>
+        <attr name="arc2Color" format="color"/>
+        <attr name="arc3Color" format="color"/>
+        <attr name="arc4Color" format="color"/>
+
+    </declare-styleable>
+
+</resources>
