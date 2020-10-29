@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <ImageView style="@style/styleImage_03_Task_4" />
+
+        <ImageView
+            style="@style/styleImage_03_Task_4"
+            android:layout_marginLeft="25dp" />
+
+        <ImageView
+            style="@style/styleImage_03_Task_4"
+            android:layout_marginLeft="25dp" />
+    </LinearLayout>
+
+</LinearLayout>

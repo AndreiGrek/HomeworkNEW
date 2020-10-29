@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="26dp">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android"
+        android:textColor="#000000"
+        android:textSize="40sp" />
+
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/textView1"
+        android:background="#5C4E4E" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView1"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/image1"
+        android:gravity="center"
+        android:text="125 \n Posts"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView1"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/textView2"
+        android:gravity="center"
+        android:text="20K \n Followers"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/textView3"
+        android:gravity="center"
+        android:text="22 \n Following"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image1"
+        android:layout_marginTop="10dp"
+        android:text="UserName"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/adress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user"
+        android:layout_marginTop="10dp"
+        android:text="Address \ndescription"
+        android:textSize="20sp" />
+
+
+    <ImageView
+        android:id="@+id/i1"
+        style="@style/styleImage_01_Task_4"
+        android:layout_below="@id/adress"
+        android:layout_marginTop="10dp" />
+
+    <ImageView
+        android:id="@+id/i2"
+        style="@style/styleImage_01_Task_4"
+        android:layout_below="@id/adress"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/i1" />
+
+    <ImageView
+        android:id="@+id/i3"
+        style="@style/styleImage_01_Task_4"
+        android:layout_below="@id/adress"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/i2" />
+
+    <ImageView
+        android:id="@+id/i4"
+        style="@style/styleImage_01_Task_4"
+        android:layout_below="@id/adress"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/i3" />
+
+    <ImageView
+        android:id="@+id/i5"
+        style="@style/styleImage_01_Task_4"
+        android:layout_below="@id/adress"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/i4" />
+
+    <ImageView
+        android:id="@+id/i6"
+        style="@style/styleImage_01_Task_4"
+        android:layout_below="@id/adress"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/i5" />
+
+    <ImageView
+        android:id="@+id/b1"
+        style="@style/styleImage_02_Task_4"
+        android:layout_below="@id/i1"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:id="@+id/b2"
+        style="@style/styleImage_02_Task_4"
+        android:layout_below="@id/i1"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:layout_toRightOf="@id/b1"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:id="@+id/b3"
+        style="@style/styleImage_02_Task_4"
+        android:layout_below="@id/i1"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:layout_toRightOf="@id/b2"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:id="@+id/b4"
+        style="@style/styleImage_02_Task_4"
+        android:layout_below="@id/i1"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_toRightOf="@id/b3"
+        android:layout_weight="1" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@id/b1"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray" />
+
+    <ImageView
+        android:id="@+id/q1"
+        style="@style/styleImage_03_Task_4"
+        android:layout_below="@id/view1"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="21dp" />
+
+    <ImageView
+        android:id="@+id/q2"
+        style="@style/styleImage_03_Task_4"
+        android:layout_below="@id/view1"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="21dp"
+        android:layout_toRightOf="@+id/q1" />
+
+    <ImageView
+        android:id="@+id/q3"
+        style="@style/styleImage_03_Task_4"
+        android:layout_below="@id/view1"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/q2" />
+
+
+</RelativeLayout>

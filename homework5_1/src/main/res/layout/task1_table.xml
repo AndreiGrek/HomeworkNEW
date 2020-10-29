@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+           style="@style/imageViewStyle_1" />
+        <TextView
+            style="@style/viewStyle_1"
+            android:text="Attractions"
+             />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <ImageView
+            style="@style/imageViewStyle_1" />
+        <TextView
+            style="@style/viewStyle_1"
+            android:text="Dining"
+            />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <ImageView
+            style="@style/imageViewStyle_1" />
+        <TextView
+            style="@style/viewStyle_1"
+            android:text="Education"
+            />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <ImageView
+            style="@style/imageViewStyle_1" />
+        <TextView
+            style="@style/viewStyle_1"
+            android:text="Family"
+             />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <ImageView
+            style="@style/imageViewStyle_1" />
+        <TextView
+            style="@style/viewStyle_1"
+            android:text="Health" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <ImageView
+            style="@style/imageViewStyle_1" />
+        <TextView
+            style="@style/viewStyle_1"
+            android:text="Office" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <ImageView
+            style="@style/imageViewStyle_1" />
+        <TextView
+            style="@style/viewStyle_1"
+            android:text="Promotions" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <ImageView
+            style="@style/imageViewStyle_1" />
+        <TextView
+            style="@style/viewStyle_1"
+            android:text="Radio" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <ImageView
+            style="@style/imageViewStyle_1" />
+        <TextView
+            style="@style/viewStyle_1"
+            android:text="Recipes" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <ImageView
+            style="@style/imageViewStyle_1" />
+        <TextView
+            style="@style/viewStyle_1"
+            android:text="Sports" />
+    </TableRow>
+
+
+
+
+</TableLayout>
