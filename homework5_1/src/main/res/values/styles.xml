@@ -1,0 +1,49 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="viewStyle_1" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:paddingLeft">25dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="imageViewStyle_1" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:background">@color/colorBlack</item>
+    </style>
+
+    <style name="styleTask_2" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="styleImage_01_Task_4" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">#5C4E4E</item>
+    </style>
+
+    <style name="styleImage_02_Task_4" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">55dp</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:background">#0747E6</item>
+    </style>
+
+    <style name="styleImage_03_Task_4" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:background">#5C4E4E</item>
+    </style>
+
+</resources>
