@@ -2,18 +2,18 @@ package com.example.homework4_1;
 
 public class Item {
     private String name;
-    private String phone;
+    private String data;
 
     public String getName() {
         return name;
     }
 
     public String getPhone() {
-        return phone;
+        return data;
     }
 
-    public Item(String name, String phone) {
+    public Item(String name, String data) {
         this.name = name;
-        this.phone = phone;
+        this.data = data;
     }
 }

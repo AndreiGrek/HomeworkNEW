@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Новый контакт добавлен", Toast.LENGTH_SHORT).show();
             itemList.add(0, new Item(data.getStringExtra("SAVEADDNAME"), data.getStringExtra("SAVEADDNUMBER")));
             itemListAdapter.notifyDataSetChanged();
+
         } else if (requestCode == 2000 && resultCode == Activity.RESULT_OK && data != null) {
             Toast.makeText(MainActivity.this, "Контакт изменен", Toast.LENGTH_SHORT).show();
             itemList.set(data.getIntExtra("POSITION", 0), new Item(data.getStringExtra("SAVEEDITNAME"), data.getStringExtra("SAVEEDITNUMBER")));

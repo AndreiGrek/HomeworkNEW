@@ -18,5 +18,4 @@
         android:src="@drawable/addicon"
         android:layout_margin="16dp"
         android:layout_gravity="end|bottom"/>
-
 </FrameLayout>
