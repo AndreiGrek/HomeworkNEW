@@ -41,7 +41,6 @@ public class AddContact extends AppCompatActivity {
             }
         });
 
-
         findViewById(R.id.buttonAdd).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -10,46 +10,34 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ItemListAdapter itemListAdapter;
     final private String POSITION = "POSITION";
+    private int position;
     AppDatabase db;
     SharedPreferences sPref;
-
     private int counter = 0;
-    private static final List<Item> itemList;
-    private static List<Item> itemDBList;
-
-
-    static {
-        itemList = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
-            itemList.add(new Item( 1,"Name", "+375 (29) xxx-xx-xx"));
-        }
-    }
+    private static List<Item> itemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-        db =  AppDatabase.getInstance(this);
-        itemDBList = db.contactDao().getAll();
+        db = AppDatabase.getInstance(this);
+        itemList = db.contactDao().getAll();
 
         RecyclerView recyclerView = findViewById(R.id.itemList);
-        itemListAdapter = new ItemListAdapter(itemList, itemDBList);
+        itemListAdapter = new ItemListAdapter(itemList);
         recyclerView.setAdapter(itemListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
@@ -63,9 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
         itemListAdapter.setOnItemClickListener(new ItemListAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(int position) {
+            public void onItemClick(int position, String name, String data) {
                 Intent intent2 = new Intent(MainActivity.this, EditContact.class);
                 intent2.putExtra(POSITION, position);
+                intent2.putExtra("NAME", name);
+                intent2.putExtra("DATA", data);
                 startActivityForResult(intent2, 2000);
             }
         });
@@ -76,16 +66,17 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 1000 && resultCode == Activity.RESULT_OK && data != null) {
             loadCounter();
             Toast.makeText(MainActivity.this, "Новый контакт добавлен", Toast.LENGTH_SHORT).show();
-            itemList.add(0, new Item(1, data.getStringExtra("SAVEADDNAME"), data.getStringExtra("SAVEADDNUMBER")));
-            itemDBList.add(counter, new Item(counter, data.getStringExtra("SAVEADDNAME"), data.getStringExtra("SAVEADDNUMBER")));
+            itemList.add(counter, new Item(counter, data.getStringExtra("SAVEADDNAME"), data.getStringExtra("SAVEADDNUMBER")));
             db.contactDao().insert(new Item(counter, data.getStringExtra("SAVEADDNAME"), data.getStringExtra("SAVEADDNUMBER")));
-            counter ++;
+            counter++;
             saveCounter(counter);
             itemListAdapter.notifyDataSetChanged();
 
         } else if (requestCode == 2000 && resultCode == Activity.RESULT_OK && data != null) {
             Toast.makeText(MainActivity.this, "Контакт изменен", Toast.LENGTH_SHORT).show();
-            itemList.set(data.getIntExtra("POSITION", 0), new Item(1, data.getStringExtra("SAVEEDITNAME"), data.getStringExtra("SAVEEDITNUMBER")));
+            position = data.getIntExtra("POSITION", 0);
+            itemList.set(position, new Item(position, data.getStringExtra("SAVEEDITNAME"), data.getStringExtra("SAVEEDITNUMBER")));
+            db.contactDao().update(new Item(position, data.getStringExtra("SAVEEDITNAME"), data.getStringExtra("SAVEEDITNUMBER")));
             itemListAdapter.notifyDataSetChanged();
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -95,29 +86,26 @@ public class MainActivity extends AppCompatActivity {
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
         ed.putInt("COUNTER", counter);
-        ed.commit();
+        ed.apply();
     }
+
     int loadCounter() {
         sPref = getPreferences(MODE_PRIVATE);
-       counter = sPref.getInt("COUNTER", 0);
-       return counter;
+        counter = sPref.getInt("COUNTER", 0);
+        return counter;
     }
 
-
-
     static class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemViewHolder> {
+        private List<Item> itemList;
 
-        private List<Item> items;
-        private List<Item> itemDBList;
-
-        public ItemListAdapter(List<Item> items, List<Item> itemDBList) {
-            this.items = items;
-            this.itemDBList =  itemDBList;
+        public ItemListAdapter(List<Item> itemList) {
+            this.itemList = itemList;
         }
+
         private OnItemClickListener mListener;
 
         public interface OnItemClickListener {
-            void onItemClick(int position);
+            void onItemClick(int position, String name, String data);
         }
 
         public void setOnItemClickListener(OnItemClickListener listener) {
@@ -142,9 +130,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return items != null ? items.size() : 0;
+            return itemList != null ? itemList.size() : 0;
         }
-
 
         static class ItemViewHolder extends RecyclerView.ViewHolder {
 
@@ -165,7 +152,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         if (listener != null) {
                             int position = getAdapterPosition();
-                            listener.onItemClick(position);
+                            String name = textViewName.getText().toString();
+                            String data = phoneView.getText().toString();
+                            listener.onItemClick(position, name, data);
                         }
                     }
                 });

@@ -22,11 +22,6 @@ public class Item {
         return id;
     }
 
-//    public Item(String name, String data) {
-//        this.name = name;
-//        this.data = data;
-//    }
-
     public Item(int id, String name, String data) {
         this.id = id;
         this.name = name;
