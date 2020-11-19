@@ -11,7 +11,7 @@ public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase database;
 
     public abstract ContactDao contactDao();
-    
+
     public synchronized static AppDatabase getInstance(Context context) {
         if (database == null) {
             database = Room.databaseBuilder(context.getApplicationContext(),
