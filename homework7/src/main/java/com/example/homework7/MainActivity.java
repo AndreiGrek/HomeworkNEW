@@ -1,18 +1,14 @@
 package com.example.homework7;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,11 +18,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private ItemListAdapter itemListAdapter;
     final private String POSITION = "POSITION";
-    private int position;
-    AppDatabase db;
-    SharedPreferences sPref;
-    private int counter = 0;
-    private static List<Item> itemList;
+    private AppDatabase db;
+    private List<Item> itemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         db = AppDatabase.getInstance(this);
         itemList = db.contactDao().getAll();
-
         RecyclerView recyclerView = findViewById(R.id.itemList);
         itemListAdapter = new ItemListAdapter(itemList);
         recyclerView.setAdapter(itemListAdapter);
@@ -45,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddContact.class);
-                startActivityForResult(intent, 1000);
+                startActivity(intent);
             }
         });
 
@@ -56,43 +48,15 @@ public class MainActivity extends AppCompatActivity {
                 intent2.putExtra(POSITION, position);
                 intent2.putExtra("NAME", name);
                 intent2.putExtra("DATA", data);
-                startActivityForResult(intent2, 2000);
+                startActivity(intent2);
             }
         });
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == 1000 && resultCode == Activity.RESULT_OK && data != null) {
-            loadCounter();
-            Toast.makeText(MainActivity.this, "Новый контакт добавлен", Toast.LENGTH_SHORT).show();
-            itemList.add(counter, new Item(counter, data.getStringExtra("SAVEADDNAME"), data.getStringExtra("SAVEADDNUMBER")));
-            db.contactDao().insert(new Item(counter, data.getStringExtra("SAVEADDNAME"), data.getStringExtra("SAVEADDNUMBER")));
-            counter++;
-            saveCounter(counter);
-            itemListAdapter.notifyDataSetChanged();
-
-        } else if (requestCode == 2000 && resultCode == Activity.RESULT_OK && data != null) {
-            Toast.makeText(MainActivity.this, "Контакт изменен", Toast.LENGTH_SHORT).show();
-            position = data.getIntExtra("POSITION", 0);
-            itemList.set(position, new Item(position, data.getStringExtra("SAVEEDITNAME"), data.getStringExtra("SAVEEDITNUMBER")));
-            db.contactDao().update(new Item(position, data.getStringExtra("SAVEEDITNAME"), data.getStringExtra("SAVEEDITNUMBER")));
-            itemListAdapter.notifyDataSetChanged();
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    void saveCounter(int counter) {
-        sPref = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor ed = sPref.edit();
-        ed.putInt("COUNTER", counter);
-        ed.apply();
-    }
-
-    int loadCounter() {
-        sPref = getPreferences(MODE_PRIVATE);
-        counter = sPref.getInt("COUNTER", 0);
-        return counter;
+    protected void onResume() {
+        itemList = db.contactDao().getAll();
+        super.onResume();
     }
 
     static class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemViewHolder> {

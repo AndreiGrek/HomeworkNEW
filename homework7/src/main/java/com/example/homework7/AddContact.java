@@ -1,7 +1,7 @@
 package com.example.homework7;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -16,6 +16,10 @@ public class AddContact extends AppCompatActivity {
     private String phone;
     private Switch switch1;
     private boolean ifChecked;
+    private AppDatabase db;
+    private int counter;
+    private SharedPreferences sPref;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,7 @@ public class AddContact extends AppCompatActivity {
 
         final EditText editText1 = findViewById(R.id.addName);
         final EditText editText2 = findViewById(R.id.addPhone);
+        db = AppDatabase.getInstance(this);
 
         switch1=findViewById(R.id.switcher1);
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -31,11 +36,11 @@ public class AddContact extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true) {
-                    editText2.setHint("E-mail");
-                    Toast.makeText(AddContact.this, "Режим ввода E-mail", Toast.LENGTH_SHORT).show();
+                    editText2.setHint(R.string.email);
+                    Toast.makeText(AddContact.this, R.string.modeInputEmail, Toast.LENGTH_SHORT).show();
                 } else if (isChecked== false){
-                    editText2.setHint("+375(29) XXX-XX-XX");
-                    Toast.makeText(AddContact.this, "Режим ввода телефона", Toast.LENGTH_SHORT).show();
+                    editText2.setHint(R.string.phoneNumber);
+                    Toast.makeText(AddContact.this, R.string.modeInputPhone, Toast.LENGTH_SHORT).show();
                 }
                 ifChecked = isChecked;
             }
@@ -47,12 +52,26 @@ public class AddContact extends AppCompatActivity {
                 Intent intentSave = new Intent(AddContact.this, MainActivity.class);
                 name = editText1.getText().toString();
                 phone = editText2.getText().toString();
-                intentSave.putExtra("SAVEADDNAME", name);
-                intentSave.putExtra("SAVEADDNUMBER", phone);
-                intentSave.putExtra("ISCHEKED", ifChecked);
-                setResult(Activity.RESULT_OK, intentSave);
+                loadCounter();
+                db.contactDao().insert(new Item(counter, name, phone));
+                Toast.makeText(AddContact.this, R.string.addNewContact, Toast.LENGTH_SHORT).show();
+                counter ++;
+                saveCounter(counter);
+                startActivity(intentSave);
                 finish();
             }
         });
+    }
+    void saveCounter(int counter) {
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putInt("COUNTER", counter);
+        ed.apply();
+    }
+
+    public int loadCounter() {
+        sPref = getPreferences(MODE_PRIVATE);
+        this.counter = sPref.getInt("COUNTER", 0);
+        return counter;
     }
 }

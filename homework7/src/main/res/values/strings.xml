@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Homework7</string>
+    <string name="email">E-mail</string>
+    <string name="phoneNumber">+375(29) XXX-XX-XX</string>
+    <string name="modeInputPhone">Режим ввода телефона</string>
+    <string name="modeInputEmail">Режим ввода e-mail</string>
+    <string name="addNewContact">Новый контакт добавлен</string>
+    <string name="editContact">Контакт изменен</string>
+
+
+
 </resources>

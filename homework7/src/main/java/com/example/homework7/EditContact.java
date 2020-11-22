@@ -1,6 +1,5 @@
 package com.example.homework7;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +16,7 @@ public class EditContact extends AppCompatActivity {
     private String name;
     private String data;
     private int position;
+    private AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,18 +31,19 @@ public class EditContact extends AppCompatActivity {
         data = intentPosition.getStringExtra("DATA");
         editName.setHint(name);
         editData.setHint(data);
+        db = AppDatabase.getInstance(this);
 
-        switch2=findViewById(R.id.switcher2);
+        switch2 = findViewById(R.id.switcher2);
         switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true) {
-                    editData.setHint("E-mail");
-                    Toast.makeText(EditContact.this, "Режим ввода E-mail", Toast.LENGTH_SHORT).show();
-                } else if (isChecked== false){
-                    editData.setHint("+375(29) XXX-XX-XX");
-                    Toast.makeText(EditContact.this, "Режим ввода телефона", Toast.LENGTH_SHORT).show();
+                    editData.setHint(R.string.email);
+                    Toast.makeText(EditContact.this, R.string.modeInputEmail, Toast.LENGTH_SHORT).show();
+                } else if (isChecked == false) {
+                    editData.setHint(R.string.phoneNumber);
+                    Toast.makeText(EditContact.this, R.string.modeInputPhone, Toast.LENGTH_SHORT).show();
                 }
                 ifChecked = isChecked;
             }
@@ -54,10 +55,9 @@ public class EditContact extends AppCompatActivity {
                 Intent intentSaved = new Intent(EditContact.this, MainActivity.class);
                 name = editName.getText().toString();
                 data = editData.getText().toString();
-                intentSaved.putExtra("SAVEEDITNAME", name);
-                intentSaved.putExtra("SAVEEDITNUMBER", data);
-                intentSaved.putExtra("POSITION", position);
-                setResult(Activity.RESULT_OK, intentSaved);
+                db.contactDao().update(new Item(position, name, data));
+                Toast.makeText(EditContact.this, R.string.editContact, Toast.LENGTH_SHORT).show();
+                startActivity(intentSaved);
                 finish();
             }
         });
