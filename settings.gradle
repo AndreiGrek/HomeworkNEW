@@ -1,2 +1,4 @@
+include ':mvvmmodule'
+include ':mvpmodule'
 include ':app'
 rootProject.name = "HomeworkProject"
