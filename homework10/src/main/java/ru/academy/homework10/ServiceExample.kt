@@ -44,14 +44,19 @@ class ServiceExample : Service(), ServiceActions {
     private fun someJob(event: String?) {
         val runnable = Runnable {
             if (event != null) {
-                writeToInternal(event)
-                writeToExternal(event)
+                if (loadBooleanStatement()) {
+                    Log.d(LOG, "Записано в External Storage")
+                    writeToExternal(event)
+                } else if (!loadBooleanStatement()) {
+                    Log.d(LOG, "Записано в Internal Storage")
+                    writeToInternal(event)
+                }
             }
         }
         Thread(runnable).start()
     }
 
-    private fun writeToInternal (event: String?){
+    private fun writeToInternal(event: String?) {
         var date = Date(System.currentTimeMillis())
         var formatter = SimpleDateFormat("yyyy-MM-dd HH:mm")
         val currentDate: String = formatter.format(date)
@@ -61,21 +66,17 @@ class ServiceExample : Service(), ServiceActions {
         bw.close()
     }
 
-    private fun writeToExternal (event: String?){
+    private fun writeToExternal(event: String?) {
         var date = Date(System.currentTimeMillis())
         var formatter = SimpleDateFormat("yyyy-MM-dd HH:mm")
         val currentDate: String = formatter.format(date)
-
-        var externalPath = File (Environment.getExternalStorageDirectory().absolutePath, "Pedik")
+        var externalPath = File(Environment.getExternalStorageDirectory().absolutePath, "Actions")
         externalPath.mkdir()
-        var externalFile = File (externalPath, actionFile)
-
-        val bw = BufferedWriter ( FileWriter (externalFile))
+        var externalFile = File(externalPath, actionFile)
+        val bw = BufferedWriter(FileWriter(externalFile, true))
         bw.write(currentDate + " - " + event + "\n")
         bw.close()
     }
-
-
 
     override fun getData(): Int {
         TODO("Not yet implemented")
@@ -84,6 +85,11 @@ class ServiceExample : Service(), ServiceActions {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(LOG, "Сработал метод onDestroy")
+    }
+
+    private fun loadBooleanStatement(): Boolean {
+        val sharedPreferences = getSharedPreferences("PREF", Context.MODE_PRIVATE)
+        return sharedPreferences.getBoolean("STATEMENT", false)
     }
 
     companion object {

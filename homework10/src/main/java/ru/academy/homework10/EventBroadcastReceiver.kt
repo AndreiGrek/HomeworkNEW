@@ -16,7 +16,6 @@ class EventBroadcastReceiver : BroadcastReceiver() {
             Intent.ACTION_TIME_TICK -> sendTaskToservice(eventTick, context)
             Intent.ACTION_TIME_CHANGED -> sendTaskToservice(eventTime, context)
             Intent.ACTION_TIMEZONE_CHANGED -> sendTaskToservice(eventTimeZone, context)
-//            Intent.ACTION_TIME_TICK -> Toast.makeText(context, "Бродкаст сработал", Toast.LENGTH_SHORT).show();
         }
     }
 

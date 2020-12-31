@@ -4,6 +4,7 @@
 
 <!--    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -12,11 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:permission="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:process=":Any">
         <service
             android:name=".ServiceExample"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            android:process=":Any">
         </service>
 
         <activity android:name=".MainActivity">
