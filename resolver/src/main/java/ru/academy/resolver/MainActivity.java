@@ -1,10 +1,5 @@
 package ru.academy.resolver;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private List<Contact> contactList;
     private ItemListAdapter itemListAdapter;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor cursor = getContentResolver().query(Uri.parse(URI_PATH), null, null, null, null);
         if (cursor != null) {
-            String s = "Двигаемся";
-            int descriptionInd = cursor.getColumnIndex("description");
-      contactList = new ArrayList<Contact>();
+            contactList = new ArrayList<>();
             while (cursor.moveToNext()) {
                 contactList.add(new Contact(cursor.getString(1), cursor.getString(2)));
-//                Log.d("POMIDOR", cursor.getString(1));
-//                Log.d("POMIDOR", cursor.getString(2));
+
             }
             cursor.close();
         }

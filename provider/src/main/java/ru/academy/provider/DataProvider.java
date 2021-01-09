@@ -3,19 +3,12 @@ package ru.academy.provider;
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.room.Database;
-import androidx.room.DatabaseConfiguration;
-import androidx.room.InvalidationTracker;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 public class DataProvider extends ContentProvider {
 
@@ -91,24 +84,6 @@ public class DataProvider extends ContentProvider {
                       @Nullable ContentValues values,
                       @Nullable String selection,
                       @Nullable String[] selectionArgs) {
-//        switch (uriMatcher.match(uri)) {
-//            case ID_PERSON_DATA:
-//                if (getContext() != null) {
-//                    int count = contactDao
-//                            .update(Item.fromContentValues(values));
-//                    if (count != 0) {
-//                        getContext().getContentResolver()
-//                                .notifyChange(uri, null);
-//                        return count;
-//                    }
-//                }
-//            case ID_PERSON_DATA_ITEM:
-//                throw new IllegalArgumentException
-//                        ("Invalid URI:  cannot update");
-//            default:
-//                throw new IllegalArgumentException
-//                        ("Unknown URI: " + uri);
-//        }
         return 0;
     }
 
@@ -121,26 +96,6 @@ public class DataProvider extends ContentProvider {
     @Override
     public Uri insert(@NonNull Uri uri,
                       @Nullable ContentValues values) {
-//        switch (uriMatcher.match(uri)) {
-//            case ID_PERSON_DATA:
-//                if (getContext() != null) {
-//                    long id = contactDao.insert(Item.
-////                            fromContentValues(values));
-//                    if (id != 0) {
-//                        getContext().getContentResolver()
-//                                .notifyChange(uri, null);
-//                        return ContentUris.withAppendedId(uri, id);
-//
-//                    }
-//
-//                }
-//            case ID_PERSON_DATA_ITEM:
-//                throw new IllegalArgumentException
-//                        ("Invalid URI: Insert failed" + uri);
-//            default:
-//                throw new IllegalArgumentException
-//                        ("Unknown URI: " + uri);
-//        }
         return null;
     }
 
