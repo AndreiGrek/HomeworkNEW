@@ -1,2 +1,4 @@
+include ':resolver'
+include ':provider'
 include ':app'
 rootProject.name = "HomeworkProject"
